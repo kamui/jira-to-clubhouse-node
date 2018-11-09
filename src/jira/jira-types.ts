@@ -20,7 +20,11 @@ export enum IssueLinkTypeEnum {
   Duplicate = 'Duplicate',
   Relates = 'Relates',
   Cloners = 'Cloners',
-  Blocks = 'Blocks'
+  Blocks = 'Blocks',
+  GanttEndtoEnd = 'Gantt End to End',
+  GanttEndtoStart = 'Gantt End to Start',
+  GanttStarttoEnd = 'Gantt Start to End',
+  GanttStarttoStart = 'Gantt Start to Start'
 }
 
 export interface IssueLink extends JiraBaseEntity {

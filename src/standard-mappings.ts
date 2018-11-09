@@ -13,5 +13,9 @@ export const issueLinkToStoryLinkMapping: { [issueLinkType: string]: StoryLinkVe
   [IssueLinkTypeEnum.Blocks]: 'blocks',
   [IssueLinkTypeEnum.Cloners]: 'relates to',
   [IssueLinkTypeEnum.Duplicate]: 'duplicates',
-  [IssueLinkTypeEnum.Relates]: 'relates to'
+  [IssueLinkTypeEnum.Relates]: 'relates to',
+  [IssueLinkTypeEnum.GanttEndtoEnd]: 'relates to',
+  [IssueLinkTypeEnum.GanttEndtoStart]: 'blocks',
+  [IssueLinkTypeEnum.GanttStarttoEnd]: 'relates to',
+  [IssueLinkTypeEnum.GanttStarttoStart]: 'relates to'
 };

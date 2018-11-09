@@ -438,7 +438,7 @@ function determineLinksToCreate(issues: JiraRegularIssue[], existingLinkDeduplic
 
         let issueLinkInfo: IssueLinkInfo = partialLinks.get(issueLink.id);
         if (!issueLinkInfo) {
-          issueLinkInfo = {type: IssueLinkTypeEnum[issueLink.type.name]};
+          issueLinkInfo = {type: IssueLinkTypeEnum[issueLink.type.name.replace(/\s+/g, '')]};
           partialLinks.set(issueLink.id, issueLinkInfo);
         }
 

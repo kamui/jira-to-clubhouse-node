@@ -1,8 +1,6 @@
 import * as fs from 'fs';
 import jira from './jiraApi';
 
-const ensureDataDirExists = () => {fs.mkdirSync(__dirname + '/../../data')};
-
 export const downloadAllProjects = async () => {
   ensureDataDirExists();
   const allProjects = await jira.listProjects();

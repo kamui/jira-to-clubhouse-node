@@ -30,6 +30,7 @@ export const CLUBHOUSE = {
   SESSION_COOKIE: 'ajs_anonymous_id=%2257e732183-f1a2-4d50-babc-62b6b212d0786%22; clubhouse-session=59a1422d8f-fd69-43fb-9ac8-f74dc24245180a; ajs_group_id=null; _ga=GA1.2.2629430817.1505897866; _gid=GA1.2.8964972652.115058973866; ajs_user_id=%22594917e8a-070a-4559-972b1-18d3a12a6bb8be%22',
   // can be retrieved from `Clubhouse-Organization` request header when logged into clubhouse. required for user migration
   ORGANIZATION_ID: '524971e8a-0959-4233-148af-9f2413486e35',
+  TEAM_ID: '1'
 };
 
 export function jiraUserToClubhouseUsername(jiraUser: User) {

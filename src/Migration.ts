@@ -37,7 +37,8 @@ export function jiraProjectToClubhouseProject(project: JiraProject): Project {
   return {
     name: project.name,
     abbreviation: project.key,
-    external_id: project.key
+    external_id: project.key,
+    team_id: CLUBHOUSE.TEAM_ID
   } as any;
 }
 

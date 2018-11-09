@@ -19,11 +19,16 @@ export const JIRA = {
   EPIC_TITLE_CUSTOM_FIELD: 'customfield_10003'
 };
 
+const jiraToClubhouseUsersMap = {
+  // After users are invited and create accounts, fill in this user map
+  // The key is the JIRA username, the value is the Clubhouse username
+  admin: "deleteduser",
+}
+
 export const CLUBHOUSE = {
   // clubhouse api token
   API_TOKEN: '59t22e5f-4c63-4f7c-b434-ef49f6f4f3dc',
   ORG: 'myorg',
-  ORG_USER_SUFFIX: '-myorg',
   ORG_USER_INITIAL_PASSWORD: 'initialpasswordforallusers',
   // required for user migration. Just copy it from any POST / PUT call in chrome dev tools network tab while logged in to clubhouse. You simply have to copy the content of the `Cookie` header.
   // TODO: better docs
@@ -34,7 +39,7 @@ export const CLUBHOUSE = {
 };
 
 export function jiraUserToClubhouseUsername(jiraUser: User) {
-  return jiraUser.key + '-' + CLUBHOUSE.ORG_USER_SUFFIX;
+  return jiraToClubhouseUsersMap[jiraUser.key];
 }
 
 export function getEmailForUser(jiraUser: User) {
@@ -44,7 +49,9 @@ export function getEmailForUser(jiraUser: User) {
 }
 
 export function replaceUserReferencesInComment(comment: string) {
-  return comment.replace(/\[~(.+?)]/g, `@$1${CLUBHOUSE.ORG_USER_SUFFIX} `);
+  return comment.replace(/\[~(.+?)]/g, (match, p1) => {
+    return `@${jiraToClubhouseUsersMap[p1]}`
+  })
 }
 
 export enum JiraIssueStatus {

@@ -147,7 +147,7 @@ export class Migration {
       });
     }
 
-    if (issue.fields.fixVersions.length > 0) {
+    if (issue.fields.fixVersions && issue.fields.fixVersions.length > 0) {
       // extract release info and assign released stories to a tag with the same name as the release
       const jiraRelease = issue.fields.fixVersions[0];
       const labelName = `Release-${jiraRelease.releaseDate}-${jiraRelease.name}`;
